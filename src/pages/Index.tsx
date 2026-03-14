@@ -8,6 +8,7 @@ import { useHeroSlides, useUniversities, useCourses, useCourseCategories, useTes
 import SectionHeading from "@/components/SectionHeading";
 import InquiryForm from "@/components/InquiryForm";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import LocationMap from "@/components/LocationMap";
 import SEOHead, { organizationSchema, localBusinessSchema } from "@/components/SEOHead";
 import { ChevronRight, GraduationCap, Users, Building2, BookOpen, ArrowRight, Quote, MapPin, Phone, Star, ChevronLeft, Search, X, ChevronDown, Clock, Facebook, Instagram, Twitter, Camera, Mail, CreditCard } from "lucide-react";
 import { fuzzyFilterCourses } from "@/lib/fuzzySearch";
@@ -632,7 +633,7 @@ const Index = () => {
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5" />
         <div className="container mx-auto px-4 relative">
-          <div className="max-w-3xl mx-auto">
+          <div className="mx-auto max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <SectionHeading title="Begin Your Journey" subtitle="Fill in your details and our academic counselors will guide you toward the right course and university." />
             </motion.div>
@@ -643,6 +644,11 @@ const Index = () => {
                   <InquiryForm />
                 </CardContent>
               </Card>
+            </motion.div>
+          </div>
+          <div className="mx-auto mt-10 max-w-[1200px]">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
+              <LocationMap />
             </motion.div>
           </div>
         </div>

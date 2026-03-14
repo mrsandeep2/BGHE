@@ -13,6 +13,7 @@ import PageTransition from "@/components/PageTransition";
 import AdminLayout from "@/components/admin/AdminLayout";
 import AdminGuard from "@/components/admin/AdminGuard";
 import SuperAdminGuard from "@/components/admin/SuperAdminGuard";
+import SocialPopup from "@/components/SocialPopup";
 
 // Lazy load pages for performance
 const Index = lazy(() => import("./pages/Index"));
@@ -116,6 +117,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
+          <SocialPopup />
           <ScrollToTop />
           <AnimatedRoutes />
         </AuthProvider>
