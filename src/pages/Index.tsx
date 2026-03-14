@@ -532,26 +532,28 @@ const Index = () => {
             <SectionHeading title="Our Branches" subtitle="Find a Bharat Group office near you" />
           </motion.div>
           {branches.length > 0 ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-7 max-w-4xl mx-auto">
               {branches.map((b, i) => {
+                const isMain = b.id === "forbesganj";
                 const cardColors = [
-                  "from-blue-100 via-blue-50 to-indigo-100 hover:from-blue-200 hover:to-indigo-200",
-                  "from-emerald-100 via-green-50 to-teal-100 hover:from-emerald-200 hover:to-teal-200",
-                  "from-amber-100 via-yellow-50 to-orange-100 hover:from-amber-200 hover:to-orange-200",
-                  "from-rose-100 via-pink-50 to-red-100 hover:from-rose-200 hover:to-red-200",
-                  "from-violet-100 via-purple-50 to-indigo-100 hover:from-violet-200 hover:to-indigo-200",
+                  "from-amber-50 via-yellow-50 to-orange-100 hover:from-amber-100 hover:to-orange-200",
+                  "from-emerald-50 via-green-50 to-teal-100 hover:from-emerald-100 hover:to-teal-200",
+                  "from-blue-50 via-indigo-50 to-violet-100 hover:from-blue-100 hover:to-violet-200",
                 ];
-                const iconColors = ["from-amber-400 to-orange-500", "from-emerald-400 to-teal-500", "from-blue-400 to-indigo-500", "from-rose-400 to-pink-500", "from-violet-400 to-purple-500"];
+                const iconColors = ["from-amber-400 to-orange-500", "from-emerald-400 to-teal-500", "from-blue-400 to-indigo-500"];
                 return (
                   <motion.div key={b.id} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
                     <Link to="/branches">
-                      <Card className={`group cursor-pointer h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 text-center overflow-hidden bg-gradient-to-br ${cardColors[i % 5]}`}>
-                        <CardContent className="p-6">
+                      <Card className={`group cursor-pointer h-full border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 text-center overflow-hidden bg-gradient-to-br ${cardColors[i % 3]} ${isMain ? "ring-2 ring-accent/40" : ""}`}>
+                        <CardContent className="p-7">
+                          {isMain && (
+                            <span className="inline-block text-[10px] font-bold uppercase tracking-widest bg-accent text-white px-2.5 py-0.5 rounded-full mb-3">Head Office</span>
+                          )}
                           <motion.div whileHover={{ scale: 1.2, rotate: 10 }} transition={{ type: "spring" }}
-                            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${iconColors[i % 5]} flex items-center justify-center mx-auto mb-4 shadow-lg`}>
+                            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${iconColors[i % 3]} flex items-center justify-center mx-auto mb-4 shadow-lg`}>
                             <MapPin className="w-7 h-7 text-white" />
                           </motion.div>
-                          <h3 className="font-heading font-semibold text-foreground group-hover:text-accent transition-colors text-lg">{b.city}</h3>
+                          <h3 className="font-heading font-bold text-foreground group-hover:text-accent transition-colors text-xl">{b.city}</h3>
                           <p className="text-sm text-muted-foreground mt-1">{b.state}</p>
                           <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-accent">
                             <Phone className="w-3 h-3" />
