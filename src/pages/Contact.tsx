@@ -9,7 +9,7 @@ const contactInfo = [
   { icon: MapPin, title: "Visit Us", text: "Near T.V. Tower, Block Road, Forbesganj, Bihar", color: "bg-accent/10 text-accent" },
   { icon: Phone, title: "Call Us", text: "7546935196", href: "tel:7546935196", color: "bg-emerald-100 text-emerald-600" },
   { icon: Mail, title: "Email Us", text: "bgheofficial@zohomail.in", href: "mailto:bgheofficial@zohomail.in", color: "bg-orange-100 text-orange-500" },
-  { icon: Mail, title: "HR Email", text: "hr.bghe104kgmail.com", color: "bg-orange-100 text-orange-500" },
+  { icon: Mail, title: "HR Email", text: "hr.bghe104k@gmail.com", href: "mailto:hr.bghe104k@gmail.com", color: "bg-orange-100 text-orange-500" },
   { icon: Clock, title: "Working Hours", text: "Mon – Sat: 9:00 AM – 6:00 PM", color: "bg-primary/10 text-primary" },
 ];
 

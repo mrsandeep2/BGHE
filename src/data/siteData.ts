@@ -64,6 +64,22 @@ export const branches: Branch[] = [
     phone: "7546935196",
     email: "bgheofficial@zohomail.in",
   },
+  {
+    id: "hansdiha",
+    city: "Hansdiha",
+    state: "Jharkhand",
+    address: "Hansdiha, Dumka, Jharkhand",
+    phone: "7546935196",
+    email: "bgheofficial@zohomail.in",
+  },
+  {
+    id: "singheshwar",
+    city: "Singheshwar",
+    state: "Bihar",
+    address: "Singheshwar, Madhepura, Bihar",
+    phone: "7546935196",
+    email: "bgheofficial@zohomail.in",
+  },
 ];
 
 // --- UNIVERSITIES ---

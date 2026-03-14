@@ -30,7 +30,7 @@ const Footer = () => {
               <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 text-accent shrink-0" />Near T.V. Tower, Block Road, Forbesganj, Bihar</li>
               <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent shrink-0" /><a href="tel:7546935196" className="hover:text-accent transition-colors">7546935196</a></li>
               <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent shrink-0" /><a href="mailto:bgheofficial@zohomail.in" className="hover:text-accent transition-colors">bgheofficial@zohomail.in</a></li>
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent shrink-0" /><span>hr.bghe104kgmail.com</span></li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent shrink-0" /><a href="mailto:hr.bghe104k@gmail.com" className="hover:text-accent transition-colors">hr.bghe104k@gmail.com</a></li>
             </ul>
           </div>
           <div>
@@ -44,8 +44,13 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-primary-foreground/50">
           <p>© {new Date().getFullYear()} BGHE Education (Bharat Group of Higher Education). All rights reserved.</p>
-          <div className="flex items-center gap-2">
-            <span>Designed by <span className="text-primary-foreground/70 font-medium">Sandeep Kumar</span> (Software Engineer) +91 7070422574</span>
+          <div className="flex items-center gap-2 flex-wrap justify-center">
+            <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-primary-foreground/90">
+              Designed by <span className="text-accent font-semibold">Sandeep Kumar</span> (Software Engineer)
+            </span>
+            <a href="https://wa.me/917070422574" target="_blank" rel="noopener noreferrer" className="rounded-full border border-emerald-400/40 bg-emerald-500/15 px-3 py-1 text-emerald-300 font-semibold hover:bg-emerald-500/25 transition-colors">
+              WhatsApp: +91 7070422574
+            </a>
             <div className="flex items-center gap-1.5 ml-1">
               <a href="https://www.instagram.com/mr_sandeep2_/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
               <a href="https://www.linkedin.com/in/sandeepk-cse/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Linkedin className="w-3.5 h-3.5" /></a>
