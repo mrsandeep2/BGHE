@@ -11,7 +11,7 @@ interface SEOHeadProps {
   noIndex?: boolean;
 }
 
-const SITE_NAME = "BGHE Education – Forbesganj, Bihar";
+const SITE_NAME = "Bharat Group Of Higher Education (BGHE)";
 const BASE_URL = "https://bghe.in";
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
@@ -25,7 +25,7 @@ const SEOHead = ({
   structuredData,
   noIndex = false,
 }: SEOHeadProps) => {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  const fullTitle = title || SITE_NAME;
   const canonicalUrl = canonical ? `${BASE_URL}${canonical}` : undefined;
 
   return (

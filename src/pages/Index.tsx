@@ -63,9 +63,9 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="DRCC Admission Center Forbesganj – Student Credit Card Bihar"
-        description="BGHE Education Forbesganj – Get college admission through DRCC Student Credit Card scheme with loan up to ₹4 lakh. B.Tech, BCA, MBA, Nursing & more courses available."
-        keywords="DRCC admission Forbesganj, student credit card admission Bihar, BGHE Education, private university admission Bihar, B.Tech admission through DRCC, BCA admission Bihar, MBA admission student credit card"
+        title="Bharat Group of Higher Education: Admission India 2026"
+        description="Bharat Group of Higher Education helps students with university admission India 2026, UG PG admission support, DRCC guidance, and higher education counseling."
+        keywords="Bharat Group of Higher Education, university admission India, college admission 2026, higher education India, UG PG admission India, DRCC admission support"
         canonical="/"
         structuredData={organizationSchema}
       />
@@ -650,6 +650,27 @@ const Index = () => {
             <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
               <LocationMap />
             </motion.div>
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              className="mt-8 rounded-2xl border border-border bg-card/80 p-5 sm:p-6 shadow-sm"
+              aria-labelledby="admission-links-title"
+            >
+              <h2 id="admission-links-title" className="text-xl sm:text-2xl font-heading font-bold text-foreground">
+                Admission Navigation for Students
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-muted-foreground">
+                Start with course discovery and continue through universities, blog guidance, and final counseling support.
+              </p>
+              <nav className="mt-4 flex flex-wrap gap-3 text-sm font-semibold">
+                <Link to="/courses" className="rounded-full bg-primary/10 px-4 py-2 text-primary hover:bg-primary/15">Home to Courses</Link>
+                <Link to="/universities" className="rounded-full bg-primary/10 px-4 py-2 text-primary hover:bg-primary/15">Courses to Universities</Link>
+                <Link to="/blog" className="rounded-full bg-primary/10 px-4 py-2 text-primary hover:bg-primary/15">Universities to Blog</Link>
+                <Link to="/contact" className="rounded-full bg-primary/10 px-4 py-2 text-primary hover:bg-primary/15">Blog to Contact</Link>
+              </nav>
+            </motion.section>
           </div>
         </div>
       </section>

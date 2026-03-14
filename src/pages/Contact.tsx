@@ -25,9 +25,9 @@ const Contact = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Contact Us – DRCC Admission Help Forbesganj"
-        description="Contact BGHE Education near T.V. Tower, Block Road, Forbesganj, Bihar for DRCC student credit card admission help. Call: 7546935196, Email: bgheofficial@zohomail.in"
-        keywords="contact BGHE Education, DRCC admission center Forbesganj, admission consultant Araria district, college admission help Forbesganj Bihar"
+        title="Contact BGHE India | College Admission 2026 Counseling"
+        description="Contact Bharat Group of Higher Education for college admission 2026 counseling, university admission support, DRCC help, and higher education guidance."
+        keywords="contact Bharat Group of Higher Education, college admission 2026 counseling, university admission India help, DRCC admission support"
         canonical="/contact"
         structuredData={contactSchema}
       />

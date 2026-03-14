@@ -9,6 +9,7 @@ import { BookOpen, ArrowRight, Clock, ChevronDown, Search, X, FileText, Landmark
 import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import SectionHeading from "@/components/SectionHeading";
+import SEOHead from "@/components/SEOHead";
 import { fuzzyFilterCourses } from "@/lib/fuzzySearch";
 import { getCourseIcon, getCardColor } from "@/lib/courseIcons";
 
@@ -87,6 +88,13 @@ const Courses = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="College Admission 2026 Courses | Higher Education India"
+        description="Browse UG and PG courses for college admission 2026 in India. Compare durations, specializations, and DRCC-supported programs with BGHE guidance."
+        keywords="college admission 2026 courses, UG PG admission India, higher education India courses, distance education universities India, DRCC courses"
+        canonical="/courses"
+      />
+      <h1 className="sr-only">College Admission 2026 Courses in Higher Education India</h1>
       <section className="pt-24 sm:pt-32 pb-12 sm:pb-16">
         <div className="container mx-auto px-4">
           <SectionHeading title="Popular Courses" subtitle="Explore diverse academic programs across leading disciplines" />

@@ -2,12 +2,19 @@ import { motion } from "framer-motion";
 import { useBranches } from "@/hooks/useDbData";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Building2 } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Branches = () => {
   const { data: branches = [] } = useBranches();
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="BGHE Branches | University Admission India Support"
+        description="Find BGHE branches for university admission India support, counseling, and document guidance. Connect with the nearest office for admission help."
+        keywords="BGHE branches, university admission India support centers, higher education counseling offices, admission help Bihar"
+        canonical="/branches"
+      />
       <section className="bg-navy-gradient pt-24 sm:pt-32 pb-16 sm:pb-20 relative overflow-hidden">
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="absolute -top-20 -right-20 w-80 h-80 border border-primary-foreground/5 rounded-full" />
         <div className="container mx-auto px-4 text-center relative">
@@ -15,7 +22,7 @@ const Branches = () => {
             <div className="inline-flex items-center gap-2 bg-accent/20 border border-accent/30 rounded-full px-4 py-1.5 mb-6 backdrop-blur-sm">
               <Building2 className="w-4 h-4 text-accent" /><span className="text-accent text-sm font-medium">Our Locations</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary-foreground mb-4">Our Branches</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-primary-foreground mb-4">University Admission Branches in India</h1>
             <p className="text-base sm:text-xl text-primary-foreground/70 max-w-2xl mx-auto px-2">Find a Bharat Group office near you for personalized academic counseling.</p>
           </motion.div>
         </div>

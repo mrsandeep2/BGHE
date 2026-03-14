@@ -9,6 +9,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Landmark, Search, IndianRupee, GraduationCap, MapPin, Users, CalendarDays, ArrowRight, BookOpen, X, Building2, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import SectionHeading from "@/components/SectionHeading";
+import SEOHead from "@/components/SEOHead";
 
 interface DrccCourse {
   id: string;
@@ -81,6 +82,12 @@ const DRCC = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEOHead
+        title="DRCC Admission Support | Higher Education India 2026"
+        description="Get DRCC admission support for higher education India 2026. Check eligible colleges, loan limits, courses, and step-by-step guidance from BGHE."
+        keywords="DRCC admission support, DRCC student credit card Bihar, higher education India 2026, university admission with DRCC"
+        canonical="/drcc"
+      />
       {/* Hero */}
       <section className="bg-navy-gradient pt-24 sm:pt-32 pb-16 relative overflow-hidden">
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }}

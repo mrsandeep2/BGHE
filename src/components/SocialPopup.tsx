@@ -99,7 +99,7 @@ const SocialPopup = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/70 px-4 py-6 backdrop-blur-sm"
+          className="fixed inset-0 z-[9999] flex items-start justify-center overflow-y-auto bg-slate-950/70 px-3 py-3 sm:items-center sm:px-4 sm:py-6 backdrop-blur-sm"
           aria-modal="true"
           role="dialog"
         >
@@ -108,20 +108,20 @@ const SocialPopup = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.98 }}
             transition={{ duration: 0.24, ease: "easeOut" }}
-            className="relative w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/70 bg-white/95 shadow-[0_32px_120px_rgba(15,23,42,0.35)]"
+            className="relative w-full max-w-4xl max-h-[calc(100dvh-1.5rem)] overflow-y-auto rounded-[1.5rem] sm:rounded-[2rem] border border-white/70 bg-white/95 shadow-[0_32px_120px_rgba(15,23,42,0.35)]"
           >
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.18),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(30,64,175,0.10),_transparent_30%)]" />
 
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="absolute right-4 top-4 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-500 transition hover:border-slate-300 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-accent"
+              className="absolute right-3 top-3 z-20 inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-500 shadow-sm transition hover:border-slate-300 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-accent"
               aria-label="Close social popup"
             >
               <X className="h-5 w-5" />
             </button>
 
-            <div className="relative grid gap-10 px-6 py-14 sm:px-10 md:px-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+            <div className="relative grid gap-8 px-5 py-12 sm:px-10 sm:py-14 md:px-14 lg:grid-cols-[1.1fr_1fr] lg:items-center">
               <div className="max-w-xl">
                 <div className="mb-5 inline-flex items-center rounded-full border border-[hsl(var(--gold))/0.24] bg-[hsl(var(--gold))/0.1] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[hsl(var(--navy))]">
                   Bharat Group Of Higher Education

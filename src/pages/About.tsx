@@ -28,9 +28,9 @@ const process = [
 const About = () => (
   <div className="min-h-screen">
     <SEOHead
-      title="About BGHE Education – Trusted Admission Guidance"
-      description="BGHE Education is a trusted education guidance organization in Forbesganj, Bihar. We help students get admission into recognized universities through DRCC student credit card scheme."
-      keywords="about BGHE Education, education consultant Forbesganj, DRCC admission help Bihar, university admission guidance"
+      title="About Bharat Group of Higher Education Admission India"
+      description="Learn how Bharat Group of Higher Education supports university admission India, higher education counseling, and DRCC-focused admission guidance for students."
+      keywords="about Bharat Group of Higher Education, university admission India support, higher education admission counseling, DRCC admission support"
       canonical="/about"
     />
     {/* Hero */}

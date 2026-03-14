@@ -36,9 +36,9 @@ const Blog = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Blog – DRCC Admission News & Education Guides"
-        description="Read latest articles on DRCC student credit card admission, Bihar university admission tips, career guidance and education news from BGHE Education Forbesganj."
-        keywords="DRCC admission blog, student credit card news Bihar, education blog Forbesganj, career guidance articles"
+        title="BGHE Blog | University Admission India & DRCC Guides"
+        description="Read practical guides on university admission India, UG PG admission 2026, distance education universities, and DRCC support for higher education students."
+        keywords="university admission India blog, UG PG admission guide India, distance education universities India, DRCC admission support articles"
         canonical="/blog"
         structuredData={blogSchema}
       />

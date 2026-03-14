@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, MapPin, ArrowRight, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEOHead from "@/components/SEOHead";
 
 const types = ["All", "Public", "Private"];
 
@@ -24,6 +25,12 @@ const Universities = () => {
 
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Top Universities in India | College Admission 2026"
+        description="Explore partner public and private universities for college admission 2026 in India. Find locations, programs, and DRCC-enabled institutions with BGHE."
+        keywords="top universities in India, university admission India 2026, private and public universities India, higher education India"
+        canonical="/universities"
+      />
       <section className="bg-navy-gradient pt-24 sm:pt-32 pb-16 sm:pb-20 relative overflow-hidden">
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} className="absolute -top-20 -right-20 w-80 h-80 border border-primary-foreground/5 rounded-full" />
         <div className="container mx-auto px-4 text-center relative">
