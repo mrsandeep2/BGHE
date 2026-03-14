@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { navLinks } from "@/data/siteData";
 import { Button } from "@/components/ui/button";
-import { Menu, X, GraduationCap, LogIn } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import NoticeTicker from "@/components/NoticeTicker";
 
@@ -20,23 +20,16 @@ const Navbar = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(var(--navy-dark))] backdrop-blur-md shadow-lg border-b border-primary-foreground/10 transition-all duration-300">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 group">
-              <motion.div
-                whileHover={{ rotate: 10, scale: 1.1 }}
-                transition={{ type: "spring" }}
-                className="w-10 h-10 rounded-lg bg-navy-gradient flex items-center justify-center"
-              >
-                <GraduationCap className="w-6 h-6 text-primary-foreground" />
-              </motion.div>
-              <div className="leading-tight">
-                <span className="text-lg font-heading font-bold block text-primary-foreground">
-                  BGHE
-                </span>
-                <span className="text-[10px] uppercase tracking-widest text-accent font-semibold">
-                  Education
-                </span>
-              </div>
+            {/* Logo + Organization name */}
+            <Link to="/" className="flex items-center gap-[10px] group min-w-0">
+              <img
+                src="/bghe-logo.png"
+                alt="Bharat Group Of Higher Education"
+                className="h-[45px] w-auto object-contain shrink-0"
+              />
+              <h1 className="font-heading font-bold leading-tight text-white text-[13px] sm:text-[16px] md:text-[22px] max-w-[180px] sm:max-w-[320px] md:max-w-none">
+                Bharat <span className="text-[#f4c542]">Group Of Higher Education</span>
+              </h1>
             </Link>
 
             {/* Desktop Nav */}
