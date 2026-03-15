@@ -4,6 +4,7 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useHeroSlides, useUniversities, useCourses, useCourseCategories, useTestimonials, useBranches, useMentors, useGalleryItems } from "@/hooks/useDbData";
 import SectionHeading from "@/components/SectionHeading";
 import InquiryForm from "@/components/InquiryForm";
@@ -19,6 +20,29 @@ const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.6, ease: [0, 0, 0.2, 1] as const } }),
 };
+
+const homeFaqs = [
+  {
+    question: "BGHE बिहार में एडमिशन में कैसे मदद करता है?",
+    answer: "BGHE छात्रों को सही कोर्स चुनने, यूनिवर्सिटी शॉर्टलिस्ट करने, दस्तावेज़ तैयार करने और एडमिशन प्रक्रिया को आसान बनाने में स्टेप-बाय-स्टेप मार्गदर्शन देता है।",
+  },
+  {
+    question: "क्या BGHE DRCC और BSCC से जुड़ी जानकारी भी देता है?",
+    answer: "हां, BGHE DRCC और BSCC/MNSSBY से जुड़े प्रश्नों पर छात्रों को स्पष्ट और व्यावहारिक मार्गदर्शन देता है ताकि वे बेहतर एडमिशन निर्णय ले सकें।",
+  },
+  {
+    question: "अगर मैं कोर्स को लेकर कन्फ्यूज हूं तो क्या करूं?",
+    answer: "पहले अपने लक्ष्य के अनुसार कोर्स विकल्प देखें, फिर यूनिवर्सिटी तुलना करें। जरूरत हो तो BGHE टीम से संपर्क करके व्यक्तिगत काउंसलिंग लें।",
+  },
+  {
+    question: "क्या डिस्टेंस एजुकेशन के लिए भी गाइडेंस मिलता है?",
+    answer: "बिलकुल, BGHE नियमित और डिस्टेंस एजुकेशन दोनों विकल्पों के लिए गाइडेंस देता है ताकि छात्र अपनी परिस्थिति के अनुसार सही विकल्प चुन सकें।",
+  },
+  {
+    question: "BGHE से संपर्क करने का सही समय कब है?",
+    answer: "जैसे ही आपको कोर्स, यूनिवर्सिटी, दस्तावेज़ या एडमिशन प्रक्रिया में कन्फ्यूजन हो, तुरंत संपर्क करें। जल्दी मार्गदर्शन से समय और प्रयास दोनों बचते हैं।",
+  },
+];
 
 const Index = () => {
   const { data: heroSlides = [] } = useHeroSlides();
@@ -431,6 +455,34 @@ const Index = () => {
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mt-10">
             <Link to="/courses"><Button variant="outline" className="gap-2 font-semibold group">Browse All Courses <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" /></Button></Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ - Hindi expandable */}
+      <section className="py-16 md:py-20 bg-muted/40">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <SectionHeading
+              title="अक्सर पूछे जाने वाले प्रश्न"
+              subtitle="एडमिशन, DRCC, BSCC और कोर्स चयन से जुड़े सामान्य सवालों के जवाब"
+            />
+          </motion.div>
+          <Card className="border shadow-md mt-8">
+            <CardContent className="p-3 sm:p-5">
+              <Accordion type="single" collapsible className="w-full">
+                {homeFaqs.map((faq, index) => (
+                  <AccordionItem key={faq.question} value={`home-faq-${index}`} className="px-2 sm:px-3 border-border/70">
+                    <AccordionTrigger className="text-left font-heading font-semibold text-base text-foreground hover:no-underline">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm md:text-base text-muted-foreground leading-7">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

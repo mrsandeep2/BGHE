@@ -5,6 +5,7 @@ import { seoLandingPages } from "@/data/seoLandingPages";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ArrowRight, CheckCircle2, FileText, GraduationCap, MapPin, MessageSquare } from "lucide-react";
 
 interface SeoLandingPageProps {
@@ -13,6 +14,29 @@ interface SeoLandingPageProps {
 
 const SeoLandingPage = ({ pageKey }: SeoLandingPageProps) => {
   const page = seoLandingPages[pageKey];
+
+  const hindiFaqs = [
+    {
+      question: "BGHE बिहार में एडमिशन में कैसे मदद करता है?",
+      answer: "BGHE छात्रों को सही कोर्स चुनने, यूनिवर्सिटी शॉर्टलिस्ट करने, दस्तावेज़ तैयार करने और एडमिशन प्रक्रिया को आसान बनाने में चरणबद्ध मार्गदर्शन देता है।",
+    },
+    {
+      question: "क्या BGHE DRCC और BSCC से जुड़ी जानकारी भी देता है?",
+      answer: "हां, BGHE DRCC और BSCC/MNSSBY से जुड़ी समझ, तैयारी और एडमिशन प्लानिंग के लिए उपयोगी मार्गदर्शन देता है ताकि छात्र सही निर्णय ले सकें।",
+    },
+    {
+      question: "अगर मैं कोर्स को लेकर कन्फ्यूज हूं तो क्या करना चाहिए?",
+      answer: "पहले अपने लक्ष्य के अनुसार कोर्स विकल्प देखें, फिर यूनिवर्सिटी तुलना करें। जरूरत होने पर BGHE टीम से संपर्क करके व्यक्तिगत काउंसलिंग लें।",
+    },
+    {
+      question: "क्या दूरी शिक्षा (Distance Education) के लिए भी मार्गदर्शन मिलता है?",
+      answer: "बिलकुल, BGHE नियमित और दूरी शिक्षा दोनों विकल्पों के लिए मार्गदर्शन देता है ताकि छात्र अपनी परिस्थिति के अनुसार सही मोड चुन सकें।",
+    },
+    {
+      question: "BGHE से संपर्क करने का सही समय कब है?",
+      answer: "जैसे ही आपको कोर्स, यूनिवर्सिटी, दस्तावेज़ या एडमिशन प्रक्रिया में कन्फ्यूजन हो, तुरंत संपर्क करें। जल्दी मार्गदर्शन लेने से गलतियां और देरी दोनों कम होती हैं।",
+    },
+  ];
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -26,7 +50,7 @@ const SeoLandingPage = ({ pageKey }: SeoLandingPageProps) => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: page.faqs.map((faq) => ({
+    mainEntity: hindiFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {
@@ -149,20 +173,26 @@ const SeoLandingPage = ({ pageKey }: SeoLandingPageProps) => {
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 bg-primary/5 rounded-full px-4 py-1.5 mb-4">
               <MessageSquare className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">FAQ</span>
+              <span className="text-sm font-medium text-accent">सामान्य प्रश्न</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground">Frequently Asked Questions</h2>
+            <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground">अक्सर पूछे जाने वाले प्रश्न</h2>
           </div>
-          <div className="space-y-4">
-            {page.faqs.map((faq) => (
-              <Card key={faq.question} className="border shadow-sm">
-                <CardContent className="p-6">
-                  <h3 className="font-heading font-bold text-lg text-foreground mb-2">{faq.question}</h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-7">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Card className="border shadow-sm">
+            <CardContent className="p-2 sm:p-4">
+              <Accordion type="single" collapsible className="w-full">
+                {hindiFaqs.map((faq, index) => (
+                  <AccordionItem key={faq.question} value={`item-${index}`} className="border-border/70 px-3 sm:px-4">
+                    <AccordionTrigger className="text-left font-heading font-semibold text-foreground text-base hover:no-underline">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm md:text-base text-muted-foreground leading-7">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
