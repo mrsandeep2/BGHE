@@ -57,7 +57,30 @@ const AdminBranches = () => {
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this branch?")) return;
-    await supabase.from("branches").delete().eq("id", id);
+    const { error: inquiriesError } = await supabase
+      .from("inquiries")
+      .update({ branch_id: null })
+      .eq("branch_id", id);
+
+    if (inquiriesError) {
+      toast({
+        title: "Unable to delete",
+        description: inquiriesError.message,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const { error } = await supabase.from("branches").delete().eq("id", id);
+    if (error) {
+      toast({
+        title: "Unable to delete",
+        description: error.message,
+        variant: "destructive",
+      });
+      return;
+    }
+
     toast({ title: "Deleted" });
     fetchData();
   };
