@@ -38,6 +38,46 @@ const Courses = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const touchedRef = useRef(false);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://bghe.in/" },
+      { "@type": "ListItem", position: 2, name: "Courses", item: "https://bghe.in/courses" },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Can BGHE help me choose the right course in Bihar?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. BGHE helps students compare course options, understand regular versus distance learning paths, and choose programs that fit their admission goals.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Are DRCC-supported courses listed here?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. Students can filter DRCC and non-DRCC courses on this page to understand which academic options align with their planning.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What should I do after choosing a course?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "After choosing a course, students should review universities, check DRCC or BSCC relevance if needed, and contact BGHE for direct admission support.",
+        },
+      },
+    ],
+  };
+
   const { data: courses = [] } = useQuery({
     queryKey: ["courses_full"],
     queryFn: async () => {
@@ -93,6 +133,7 @@ const Courses = () => {
         description="Browse UG and PG courses for college admission 2026 in India. Compare durations, specializations, and DRCC-supported programs with BGHE guidance."
         keywords="college admission 2026 courses, UG PG admission India, higher education India courses, distance education universities India, DRCC courses"
         canonical="/courses"
+        structuredData={[breadcrumbSchema, faqSchema]}
       />
       <h1 className="sr-only">College Admission 2026 Courses in Higher Education India</h1>
       <section className="pt-24 sm:pt-32 pb-12 sm:pb-16">
@@ -266,6 +307,24 @@ const Courses = () => {
               </Button>
             </motion.div>
           )}
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mt-12">
+            {[
+              { label: "BGHE Admission", path: "/bghe-admission" },
+              { label: "College Admission Bihar", path: "/college-admission-bihar" },
+              { label: "DRCC Support", path: "/bghe-drcc" },
+              { label: "Contact BGHE", path: "/contact" },
+            ].map((item) => (
+              <Link key={item.path} to={item.path}>
+                <Card className="h-full border-0 shadow-md hover:shadow-lg transition-shadow">
+                  <CardContent className="p-5">
+                    <h2 className="font-heading font-bold text-base text-foreground mb-2">{item.label}</h2>
+                    <p className="text-sm text-muted-foreground">Continue from course discovery to Bihar admission guidance, scheme support, or direct counseling.</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

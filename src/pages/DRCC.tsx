@@ -35,6 +35,46 @@ const DRCC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState<"course" | "college">("course");
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://bghe.in/" },
+      { "@type": "ListItem", position: 2, name: "DRCC", item: "https://bghe.in/drcc" },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Does BGHE help with DRCC admission support in Bihar?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. BGHE helps Bihar students understand DRCC-related admission guidance, course selection, document planning, and the next steps for higher education support.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I compare DRCC-eligible colleges and courses on this page?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. This page allows students to review DRCC courses and colleges so they can compare study options before contacting BGHE for counseling.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What should I do after checking DRCC options?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Students should compare relevant courses, review universities, and then contact BGHE for direct admission guidance and document support.",
+        },
+      },
+    ],
+  };
+
   const { data: drccCourses = [] } = useQuery({
     queryKey: ["drcc_courses"],
     queryFn: async () => {
@@ -87,6 +127,7 @@ const DRCC = () => {
         description="Get DRCC admission support for higher education India 2026. Check eligible colleges, loan limits, courses, and step-by-step guidance from BGHE."
         keywords="DRCC admission support, DRCC student credit card Bihar, higher education India 2026, university admission with DRCC"
         canonical="/drcc"
+        structuredData={[breadcrumbSchema, faqSchema]}
       />
       {/* Hero */}
       <section className="bg-navy-gradient pt-24 sm:pt-32 pb-16 relative overflow-hidden">
@@ -294,6 +335,24 @@ const DRCC = () => {
               </Button>
             </Link>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4 mt-12">
+            {[
+              { label: "BGHE DRCC Guide", path: "/bghe-drcc" },
+              { label: "BGHE Bihar", path: "/bghe-bihar" },
+              { label: "Courses", path: "/courses" },
+              { label: "Contact BGHE", path: "/contact" },
+            ].map((item) => (
+              <Link key={item.path} to={item.path}>
+                <Card className="h-full border-0 shadow-md hover:shadow-lg transition-shadow">
+                  <CardContent className="p-5">
+                    <h2 className="font-heading font-bold text-base text-foreground mb-2">{item.label}</h2>
+                    <p className="text-sm text-muted-foreground">Open the next most relevant BGHE page for DRCC planning and Bihar admission guidance.</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>
