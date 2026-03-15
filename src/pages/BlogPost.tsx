@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import { Calendar, ArrowLeft, User } from "lucide-react";
+import { seoHubLinks } from "@/data/seoLandingPages";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -63,6 +64,20 @@ const BlogPost = () => {
     dateModified: post.updated_at,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://bghe.in/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://bghe.in/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://bghe.in/blog/${post.slug}` },
+    ],
+  };
+
+  const articleContent = /<\s*(p|h2|h3|ul|ol|li|a|strong|em|div|section)\b/i.test(post.content)
+    ? post.content
+    : post.content.replace(/\n/g, "<br/>");
+
   return (
     <div className="min-h-screen">
       <SEOHead
@@ -71,7 +86,7 @@ const BlogPost = () => {
         canonical={`/blog/${post.slug}`}
         ogType="article"
         ogImage={post.cover_image || undefined}
-        structuredData={articleSchema}
+        structuredData={[articleSchema, breadcrumbSchema]}
       />
 
       <div className="bg-navy-gradient pt-24 sm:pt-32 pb-12">
@@ -100,7 +115,7 @@ const BlogPost = () => {
             <img src={post.cover_image} alt={post.title} className="w-full rounded-xl shadow-lg mb-8 max-h-[400px] object-cover" loading="lazy" />
           )}
           <article className="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-accent">
-            <div dangerouslySetInnerHTML={{ __html: post.content.replace(/\n/g, "<br/>") }} />
+            <div dangerouslySetInnerHTML={{ __html: articleContent }} />
           </article>
 
           {/* CTA */}
@@ -115,6 +130,19 @@ const BlogPost = () => {
               </Link>
             </CardContent>
           </Card>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4 mt-8">
+            {seoHubLinks.slice(0, 3).map((link) => (
+              <Link key={link.path} to={link.path}>
+                <Card className="h-full border-0 shadow-md hover:shadow-lg transition-shadow">
+                  <CardContent className="p-5">
+                    <h3 className="font-heading font-bold text-base text-foreground mb-2">{link.label}</h3>
+                    <p className="text-sm text-muted-foreground leading-6">{link.description}</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

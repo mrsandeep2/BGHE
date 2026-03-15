@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/SectionHeading";
 import SEOHead from "@/components/SEOHead";
 import { Calendar, Clock, ArrowRight, BookOpen, Newspaper } from "lucide-react";
+import { seoHubLinks } from "@/data/seoLandingPages";
 
 const useBlogPosts = () =>
   useQuery({
@@ -65,6 +66,26 @@ const Blog = () => {
       {/* Blog Posts */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
+          <div className="mb-12">
+            <SectionHeading
+              title="Bihar Search Guides"
+              subtitle="These landing pages support BGHE branded SEO, DRCC discovery, BSCC awareness, and Bihar-focused admission intent."
+            />
+            <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-4 mt-8">
+              {seoHubLinks.map((link, index) => (
+                <motion.div key={link.path} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.06 }}>
+                  <Link to={link.path}>
+                    <Card className="h-full border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                      <CardContent className="p-5">
+                        <h2 className="font-heading font-bold text-base text-foreground mb-2">{link.label}</h2>
+                        <p className="text-sm text-muted-foreground leading-6">{link.description}</p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
           {isLoading ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((i) => (

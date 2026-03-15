@@ -26,6 +26,7 @@ const Branches = lazy(() => import("./pages/Branches"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const SeoLandingPage = lazy(() => import("./pages/SeoLandingPage"));
 const DRCC = lazy(() => import("./pages/DRCC"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
@@ -101,6 +102,11 @@ const AnimatedRoutes = () => {
         <Route path="/team" element={<PublicLayout><Team /></PublicLayout>} />
         <Route path="/gallery" element={<PublicLayout><Gallery /></PublicLayout>} />
         <Route path="/branches" element={<PublicLayout><Branches /></PublicLayout>} />
+        <Route path="/bghe-bihar" element={<PublicLayout><SeoLandingPage pageKey="bghe-bihar" /></PublicLayout>} />
+        <Route path="/bghe-admission" element={<PublicLayout><SeoLandingPage pageKey="bghe-admission" /></PublicLayout>} />
+        <Route path="/bghe-drcc" element={<PublicLayout><SeoLandingPage pageKey="bghe-drcc" /></PublicLayout>} />
+        <Route path="/bghe-bscc" element={<PublicLayout><SeoLandingPage pageKey="bghe-bscc" /></PublicLayout>} />
+        <Route path="/college-admission-bihar" element={<PublicLayout><SeoLandingPage pageKey="college-admission-bihar" /></PublicLayout>} />
         <Route path="/blog" element={<PublicLayout><Blog /></PublicLayout>} />
         <Route path="/blog/:slug" element={<PublicLayout><BlogPost /></PublicLayout>} />
         <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
