@@ -245,9 +245,9 @@ const Index = () => {
               {galleryItems.slice(0, 8).map((item, i) => (
                 <motion.div key={item.id} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
                   transition={{ delay: i * 0.05, duration: 0.4 }}
-                  className={`relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}>
-                  <div className={`${i === 0 ? "aspect-square" : "aspect-[4/3]"} overflow-hidden`}>
-                    <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  className={`relative group overflow-hidden rounded-xl cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 bg-white`}>
+                  <div className="w-full flex justify-center items-center" style={{ minHeight: 120, maxHeight: 400, height: 'auto' }}>
+                    <img src={item.image ? `${item.image}${item.image.includes('?') ? '&' : '?'}t=${Date.now()}` : ''} alt={item.title} className="max-w-full max-h-[400px] w-auto h-auto object-contain transition-transform duration-700" />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <div>
