@@ -42,19 +42,21 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-primary-foreground/10">
-        <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-primary-foreground/50">
-          <p>© {new Date().getFullYear()} BGHE Education (Bharat Group of Higher Education). All rights reserved.</p>
-          <div className="flex items-center gap-2 flex-wrap justify-center">
-            <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-primary-foreground/90">
+        <div className="container mx-auto px-4 py-4 grid grid-cols-1 md:grid-cols-3 items-center gap-3 text-xs text-primary-foreground/50">
+          <p className="text-center md:text-left">© {new Date().getFullYear()} BGHE Education (Bharat Group of Higher Education). All rights reserved.</p>
+          <div className="flex justify-center">
+            <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-primary-foreground/90 text-sm md:text-base">
               Designed by <span className="text-accent font-semibold">Sandeep Kumar</span> (Software Engineer)
             </span>
+          </div>
+          <div className="flex items-center justify-center md:justify-end gap-2 flex-wrap">
             <a href="https://wa.me/917070422574" target="_blank" rel="noopener noreferrer" className="rounded-full border border-emerald-400/40 bg-emerald-500/15 px-3 py-1 text-emerald-300 font-semibold hover:bg-emerald-500/25 transition-colors">
               WhatsApp: +91 7070422574
             </a>
-            <div className="flex items-center gap-1.5 ml-1">
-              <a href="https://www.instagram.com/mr_sandeep2_/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Instagram className="w-3.5 h-3.5" /></a>
-              <a href="https://www.linkedin.com/in/sandeepk-cse/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Linkedin className="w-3.5 h-3.5" /></a>
-              <a href="https://www.facebook.com/sandeep.kalwar.90" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Facebook className="w-3.5 h-3.5" /></a>
+            <div className="flex items-center gap-2">
+              <a href="https://www.instagram.com/mr_sandeep2_/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Instagram className="w-4 h-4 md:w-5 md:h-5" /></a>
+              <a href="https://www.linkedin.com/in/sandeepk-cse/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Linkedin className="w-4 h-4 md:w-5 md:h-5" /></a>
+              <a href="https://www.facebook.com/sandeep.kalwar.90" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors"><Facebook className="w-4 h-4 md:w-5 md:h-5" /></a>
             </div>
           </div>
         </div>
